@@ -1,0 +1,49 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<div class="pokedex-container">
+  <h1 class="titulo">Pokédex Angular</h1>
+
+  <div class="buscador">
+    <input
+      type="text"
+      [(ngModel)]="nombrePokemon"
+      placeholder="🔍 Escribe el nombre de un Pokémon"
+    />
+    <button (click)="buscarPokemon()">Buscar</button>
+  </div>
+
+  <div *ngIf="cargando" class="loading">
+    <div class="spinner"></div>
+    <p>Cargando datos del Pokémon...</p>
+  </div>
+
+  <div *ngIf="pokemon && !cargando" class="card" [ngClass]="tipoPrincipal">
+  <h2 class="nombre">{{ pokemon.name | titlecase }}</h2>
+  <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" class="pokemon-img" />
+
+  <div class="datos">
+    <p><strong>Tipo:</strong> {{ tipoPrincipal | titlecase }}</p>
+    <p><strong>Altura:</strong> {{ pokemon.height / 10 }} m</p>
+    <p><strong>Peso:</strong> {{ pokemon.weight / 10 }} kg</p>
+    <p><strong>Habilidades:</strong></p>
+    <ul>
+      <li *ngFor="let h of pokemon.abilities">
+        {{ h.ability.name }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+  <h2 class="subtitulo">Lista de Pokémon</h2>
+  <div class="grid">
+    <div
+      class="mini-card"
+      *ngFor="let p of pokemones"
+      (click)="buscarPokemon(p.name)"
+    >
+      <span>{{ p.name | titlecase }}</span>
+    </div>
+  </div>
+</div>
