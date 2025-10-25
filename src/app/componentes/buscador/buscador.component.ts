@@ -24,7 +24,7 @@ export class BuscadorComponent {
 
   async cargarListaInicial() {
     try {
-      const respuesta = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=12');
+      const respuesta = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=20');
       this.pokemones = respuesta.data.results;
     } catch (error) {
       console.error('Error al cargar la lista de Pokémon:', error);

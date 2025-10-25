@@ -129,6 +129,12 @@
 }
 
 /*  Color de la carta según el tipo*/
+.card.normal{
+  background: linear-gradient(135deg, #f0f0f055, #e8e7e5);
+  border-color: #76767632;
+  box-shadow: 0 0 20px rgba(114, 111, 109, 0.719);
+}
+
 .card.fuego {
   background: linear-gradient(145deg, #ffb74d, #ff8a65);
   border-color: #ff7043;
@@ -175,6 +181,11 @@
 .mini-card:hover {
   background: #ffe082;
   transform: scale(1.1);
+}
+
+.card.normal {
+  background: linear-gradient(135deg, #f0f0f055, #e8e7e5);
+  box-shadow: 0 0 20px rgba(114, 111, 109, 0.719);
 }
 
 .card.fuego {
